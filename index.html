@@ -41,10 +41,11 @@
     <header class="sticky top-0 z-50 bg-gray-900/70 backdrop-blur-lg border-b border-gray-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-white">
-                Orb One™
+                <!-- FIX: Logo is now a clickable link to the home page -->
+                <a href="#" class="nav-link" data-page="products">Orb One™</a>
             </div>
             <ul class="hidden md:flex items-center space-x-6">
-                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="products">Home</a></li>
+                <li><a class="nav-link border-b-2 border-transparent pb-1 active" data-page="products">Home</a></li>
                 <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="specs">Tech Specs</a></li>
                 <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="investors">Investors</a></li>
             </ul>
@@ -94,22 +95,26 @@
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-violet-400">Orb Kids</h2>
                     <p class="mt-2 text-gray-400 flex-grow">A world of wonder, safely in their hands. Sparking creativity and providing comfort.</p>
-                    <button onclick="showPage('kids')" class="mt-6 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
+                    <!-- FIX: Changed button to a link with nav-link class -->
+                    <a href="#" data-page="kids" class="nav-link mt-6 block text-center w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</a>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-teal-400">Teen Orb</h2>
                     <p class="mt-2 text-gray-400 flex-grow">Your space to focus, connect, and be. Aiding concentration away from social media pressures.</p>
-                    <button onclick="showPage('teen')" class="mt-6 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
+                     <!-- FIX: Changed button to a link with nav-link class -->
+                    <a href="#" data-page="teen" class="nav-link mt-6 block text-center w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</a>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-sky-400">Orb One (Adults)</h2>
                     <p class="mt-2 text-gray-400 flex-grow">The original privacy-first companion. Reclaim your focus and find your calm.</p>
-                    <button onclick="showPage('adults')" class="mt-6 w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
+                     <!-- FIX: Changed button to a link with nav-link class -->
+                    <a href="#" data-page="adults" class="nav-link mt-6 block text-center w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</a>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-rose-400">Orb Family</h2>
                     <p class="mt-2 text-gray-400 flex-grow">Connect your family's Orbs. Share moments, not data. A private network for your home.</p>
-                    <button onclick="showPage('family')" class="mt-6 w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
+                     <!-- FIX: Changed button to a link with nav-link class -->
+                    <a href="#" data-page="family" class="nav-link mt-6 block text-center w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</a>
                 </div>
             </section>
 
@@ -329,7 +334,7 @@
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col items-center justify-between md:flex-row">
                 <div class="text-2xl font-bold text-white">
-                    Orb One™
+                    <a href="#" class="nav-link" data-page="products">Orb One™</a>
                 </div>
                  <div class="flex items-center space-x-4 text-sm text-gray-400 mt-6 md:mt-0">
                     <a data-page="investors" class="nav-link hover:text-white transition-colors">Investors</a>
@@ -374,7 +379,10 @@
         }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', (event) => showPage(event.target.dataset.page));
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                showPage(event.target.closest('.nav-link').dataset.page);
+            });
         });
 
         // On Page Load
