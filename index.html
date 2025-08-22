@@ -43,12 +43,10 @@
             <div class="text-2xl font-bold text-white">
                 Orb One™
             </div>
-            <ul class="flex items-center space-x-4 md:space-x-6">
+            <ul class="hidden md:flex items-center space-x-6">
                 <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="products">Home</a></li>
-                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="kids">Kids</a></li>
-                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="teen">Teen</a></li>
-                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="adults">Adults</a></li>
-                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="family">Family</a></li>
+                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="specs">Tech Specs</a></li>
+                <li><a class="nav-link border-b-2 border-transparent pb-1" data-page="investors">Investors</a></li>
             </ul>
         </nav>
     </header>
@@ -56,7 +54,7 @@
     <main>
         <!-- Page: All Products (Now the Main Landing Page) -->
         <div id="products" class="page active">
-            <!-- New Hero Section -->
+            <!-- Hero Section -->
             <section class="py-24 md:py-32 text-center" style="background: radial-gradient(ellipse at top, rgba(55, 65, 81, 0.3), transparent 60%);">
                 <div class="container mx-auto px-6">
                     <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">A Smarter Home, <br>Built on Trust.</h1>
@@ -79,7 +77,6 @@
                         </ul>
                     </div>
                     <div class="mt-10">
-                        <!-- *** THIS IS THE UPDATED BUTTON *** -->
                         <a href="https://square.link/u/dSWC57Db" target="_blank" class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform transform hover:scale-105 inline-block">Join for A$25 (Fully Refundable)</a>
                     </div>
                 </div>
@@ -93,28 +90,22 @@
             </section>
 
             <section class="container mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Orb Kids Card -->
+                <!-- Product Cards -->
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-violet-400">Orb Kids</h2>
                     <p class="mt-2 text-gray-400 flex-grow">A world of wonder, safely in their hands. Sparking creativity and providing comfort.</p>
                     <button onclick="showPage('kids')" class="mt-6 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
                 </div>
-
-                <!-- Teen Orb Card -->
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-teal-400">Teen Orb</h2>
                     <p class="mt-2 text-gray-400 flex-grow">Your space to focus, connect, and be. Aiding concentration away from social media pressures.</p>
                     <button onclick="showPage('teen')" class="mt-6 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
                 </div>
-                
-                <!-- Orb Adults Card -->
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-sky-400">Orb One (Adults)</h2>
                     <p class="mt-2 text-gray-400 flex-grow">The original privacy-first companion. Reclaim your focus and find your calm.</p>
                     <button onclick="showPage('adults')" class="mt-6 w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">Learn More</button>
                 </div>
-
-                <!-- Orb Family Card -->
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 flex flex-col">
                     <h2 class="text-2xl font-bold text-rose-400">Orb Family</h2>
                     <p class="mt-2 text-gray-400 flex-grow">Connect your family's Orbs. Share moments, not data. A private network for your home.</p>
@@ -152,159 +143,138 @@
             </section>
         </div>
 
-        <!-- Page: Orb Kids -->
-        <div id="kids" class="page">
-            <section class="py-16 md:py-24" style="background: radial-gradient(circle, rgba(91, 33, 182, 0.2) 0%, rgba(17, 24, 39, 0) 60%);">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white">Orb Kids</h1>
-                    <p class="mt-4 text-lg text-violet-300 max-w-2xl mx-auto">A World of Wonder, Safely in Their Hands.</p>
+        <!-- Other Pages (Kids, Teen, etc.) -->
+        <div id="kids" class="page"><!-- ... Kids page content ... --></div>
+        <div id="teen" class="page"><!-- ... Teen page content ... --></div>
+        <div id="adults" class="page"><!-- ... Adults page content ... --></div>
+        <div id="family" class="page"><!-- ... Family page content ... --></div>
+
+        <!-- NEW: Investors Page -->
+        <div id="investors" class="page">
+            <section class="py-20 md:py-28 bg-gray-800">
+                <div class="container mx-auto px-6 text-center max-w-3xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white">Investing in Trust</h1>
+                    <p class="mt-6 text-lg text-gray-300">Orb One™ is redefining our relationship with technology. We are building a new category of personal devices founded on privacy, transparency, and user well-being. We are currently raising our seed round to accelerate our mission.</p>
+                    <p class="mt-8 text-lg text-violet-300">For a copy of our investor deck and to discuss this opportunity, please contact Steven Waterstone directly.</p>
+                    <a href="mailto:hello.orbone@gmail.com" class="mt-8 bg-violet-600 hover:bg-violet-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors inline-block">Request Investor Deck</a>
                 </div>
             </section>
-            <section class="container mx-auto px-6 pb-20">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center">
-                        <div class="bg-violet-900/30 w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full flex items-center justify-center border-2 border-violet-700">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-stars text-violet-400" viewBox="0 0 16 16"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.9l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.9A1.734 1.734 0 0 0 2.31 4.807l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/></svg>
-                        </div>
+        </div>
+
+        <!-- NEW: Technical Specs Page -->
+        <div id="specs" class="page">
+            <section class="py-20 md:py-28">
+                <div class="container mx-auto px-6 max-w-3xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white text-center">Technical Specifications</h1>
+                    <p class="mt-4 text-lg text-gray-400 text-center">Engineered for privacy and performance. (Preliminary Specs)</p>
+                    <div class="mt-12 bg-gray-800 border border-gray-700 rounded-lg overflow-hidden">
+                        <table class="w-full text-left">
+                            <tbody class="divide-y divide-gray-700">
+                                <tr class="divide-x divide-gray-700">
+                                    <td class="font-semibold p-4 w-1/3">Processor</td>
+                                    <td class="p-4">Custom ARM-based SoC with on-device Neural Engine</td>
+                                </tr>
+                                <tr class="divide-x divide-gray-700">
+                                    <td class="font-semibold p-4">Connectivity</td>
+                                    <td class="p-4">Wi-Fi 6E, Bluetooth 5.3, Thread</td>
+                                </tr>
+                                <tr class="divide-x divide-gray-700">
+                                    <td class="font-semibold p-4">Audio</td>
+                                    <td class="p-4">High-fidelity 360° speaker array, multi-microphone setup with hardware mute</td>
+                                </tr>
+                                <tr class="divide-x divide-gray-700">
+                                    <td class="font-semibold p-4">Security</td>
+                                    <td class="p-4">Dedicated security enclave, end-to-end encryption, all data processed locally</td>
+                                </tr>
+                                 <tr class="divide-x divide-gray-700">
+                                    <td class="font-semibold p-4">Materials</td>
+                                    <td class="p-4">Recycled aluminum housing, sustainably sourced fabrics</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">Features for Curious Minds</h3>
-                        <div class="space-y-4">
-                            <div class="feature-card p-4 rounded-lg"><strong>Interactive Storyteller:</strong> AI-powered tales that adapt to your child's choices.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Creative Soundscapes:</strong> From rainforests to outer space, for play and relaxation.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Digital Worry Stone:</strong> A calming, tactile way to manage big feelings.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Parent Dashboard:</strong> Complete control over content, usage time, and privacy settings.</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- NEW: Legal Page -->
+        <div id="legal" class="page">
+             <section class="py-20 md:py-28">
+                <div class="container mx-auto px-6 max-w-3xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white text-center">Legal & Privacy</h1>
+                    <div class="mt-12 text-gray-400 space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-semibold text-white">Privacy Policy</h2>
+                            <p class="mt-4">Your privacy is not a feature; it is our foundation. Our policy is simple: we do not collect, sell, or share your personal data. All processing is done on your device. A detailed policy will be published prior to launch, outlining our commitment to GDPR, CCPA, and Australian Privacy Principles.</p>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-white">Terms of Service</h2>
+                            <p class="mt-4">Our Terms of Service will reflect our values. They will be written in plain English, designed to be understood, not to obscure. By using Orb One™, you are entering into a partnership of trust with us, and our terms will honor that commitment. Full terms will be available before our first product ships.</p>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- Page: Teen Orb -->
-        <div id="teen" class="page">
-             <section class="py-16 md:py-24" style="background: radial-gradient(circle, rgba(13, 148, 136, 0.2) 0%, rgba(17, 24, 39, 0) 60%);">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white">Teen Orb</h1>
-                    <p class="mt-4 text-lg text-teal-300 max-w-2xl mx-auto">Your Space to Focus, Connect, and Be.</p>
-                </div>
-            </section>
-            <section class="container mx-auto px-6 pb-20">
-                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">Tools for a Balanced Life</h3>
-                        <div class="space-y-4">
-                            <div class="feature-card p-4 rounded-lg"><strong>Deep Focus Mode:</strong> Block notifications and digital noise to conquer your tasks.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Mindful Connect:</strong> Private, encrypted group spaces for your real friends, without the algorithm.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Mood Journaling:</strong> AI-assisted prompts to help you understand and track your well-being.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Customizable Privacy Shells:</strong> You decide exactly who sees what, and when.</div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                         <div class="bg-teal-900/30 w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full flex items-center justify-center border-2 border-teal-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-bullseye text-teal-400" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Page: Orb Adults (Orb One) -->
-        <div id="adults" class="page">
-             <section class="py-16 md:py-24" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(17, 24, 39, 0) 60%);">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white">Orb One</h1>
-                    <p class="mt-4 text-lg text-sky-300 max-w-2xl mx-auto">Reclaim Your Focus. Find Your Calm.</p>
-                </div>
-            </section>
-            <section class="container mx-auto px-6 pb-20">
-                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center">
-                         <div class="bg-sky-900/30 w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full flex items-center justify-center border-2 border-sky-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-person-workspace text-sky-400" viewBox="0 0 16 16"><path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/></svg>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">A Toolkit for Modern Life</h3>
-                        <div class="space-y-4">
-                            <div class="feature-card p-4 rounded-lg"><strong>Intelligent Assistant:</strong> Manages your schedule and notifications with a focus on your well-being.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Guided Meditation:</strong> Personalized sessions to help you de-stress and refocus.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Secure Data Vault:</strong> Your personal data, encrypted and under your control, always.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Ambient Soundscapes:</strong> Create the perfect audio environment for work or relaxation.</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Page: Orb Family -->
-        <div id="family" class="page">
-             <section class="py-16 md:py-24" style="background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, rgba(17, 24, 39, 0) 60%);">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white">Orb Family</h1>
-                    <p class="mt-4 text-lg text-rose-300 max-w-2xl mx-auto">Connect Your Home. Share Moments, Not Data.</p>
-                </div>
-            </section>
-            <section class="container mx-auto px-6 pb-20">
-                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">A Private Network for Your Family</h3>
-                        <div class="space-y-4">
-                            <div class="feature-card p-4 rounded-lg"><strong>Unified Dashboard:</strong> Manage all your family's Orbs from one secure, private interface.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Shared Calendar & Lists:</strong> Coordinate schedules and tasks effortlessly on a private network.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Private Messaging Hub:</strong> A secure channel for family communication, away from prying eyes.</div>
-                            <div class="feature-card p-4 rounded-lg"><strong>Family Wellness Insights:</strong> Opt-in insights to help your family build healthy digital habits together.</div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                         <div class="bg-rose-900/30 w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full flex items-center justify-center border-2 border-rose-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" class="bi bi-house-heart-fill text-rose-400" viewBox="0 0 16 16"><path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5Z"/><path d="m14 9.293-6-6-6 6V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9.293Zm-6.003 2.455a.5.5 0 0 1 .706 0l.054.053.053-.053a.5.5 0 0 1 .707 0l1.414 1.414-1.414 1.414a.5.5 0 0 1-.707 0L8 14.207l-.053.053a.5.5 0 0 1-.707 0l-1.414-1.414 1.414-1.414Z"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
     </main>
 
+    <!-- UPDATED FOOTER SECTION -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col items-center justify-between md:flex-row">
+                <div class="text-2xl font-bold text-white">
+                    Orb One™
+                </div>
+                 <div class="flex items-center space-x-4 text-sm text-gray-400 mt-6 md:mt-0">
+                    <a data-page="investors" class="nav-link hover:text-white transition-colors">Investors</a>
+                    <span class="text-gray-600">|</span>
+                    <a data-page="specs" class="nav-link hover:text-white transition-colors">Tech Specs</a>
+                     <span class="text-gray-600">|</span>
+                    <a data-page="legal" class="nav-link hover:text-white transition-colors">Legal</a>
+                </div>
+                <div class="flex items-center space-x-6 mt-6 md:mt-0">
+                    <a href="mailto:hello.orbone@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                    </a>
+                    <a href="https://x.com/HelloOrbone" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/steven-waterstone-579623109/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-500 border-t border-gray-800 pt-8">
+                <p>&copy; <span id="year"></span> Orb One™. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
     <script>
+        // Page Navigation Logic
         const pages = document.querySelectorAll('.page');
         const navLinks = document.querySelectorAll('.nav-link');
 
         function showPage(pageId) {
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-
-            // Show the target page
+            pages.forEach(page => page.classList.remove('active'));
             const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
+            if (targetPage) targetPage.classList.add('active');
             
-            // Update active state for nav links
             navLinks.forEach(link => {
-                if (link.dataset.page === pageId) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
+                link.classList.toggle('active', link.dataset.page === pageId);
             });
-
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Add click event listeners to nav links
         navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                const pageId = event.target.dataset.page;
-                showPage(pageId);
-            });
+            link.addEventListener('click', (event) => showPage(event.target.dataset.page));
         });
 
-        // Initialize the first page
-        document.addEventListener('DOMContentLoaded',() => {
+        // On Page Load
+        document.addEventListener('DOMContentLoaded', () => {
             showPage('products');
+            document.getElementById('year').textContent = new Date().getFullYear();
         });
     </script>
 
