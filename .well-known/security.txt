@@ -1,6 +1,0 @@
-Contact: mailto:hello.orbone@gmail.com
-
-Preferred-Languages: en
-
-Canonical: https://orbone.org/.well-known/security.txt
-
