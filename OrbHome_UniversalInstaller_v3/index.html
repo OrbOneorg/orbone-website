@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Orb Home</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#0d1321"/>
+  <style>
+    :root{--bg:#0d1321;--card:#11192e;--fg:#e6eefc;--mut:#93a4c9;--acc:#56c3ff;}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0d1321,#152241 60%,#0d1321);
+         color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+    .wrap{width:min(820px,92%);text-align:center}
+    .orb{width:128px;height:128px;margin:0 auto 18px;border-radius:50%;
+         background: radial-gradient( circle at 30% 30%, #7ee0ff, #56c3ff 40%, #214e9b 70%, #0d1321 90%);
+         box-shadow: 0 0 34px rgba(86,195,255,.35), inset 0 0 40px rgba(255,255,255,.08); animation: float 4s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    h1{margin:8px 0 4px;font-weight:700;letter-spacing:.2px}
+    p.sub{margin:0 0 22px;color:var(--mut)}
+    .card{background:rgba(17,25,46,.7);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.08);
+          border-radius:18px;padding:20px;margin:16px auto; text-align:center}
+    .btn{appearance:none;border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;
+         background:#11192e;color:#e6eefc;font-weight:600;cursor:pointer; display:inline-block; min-width:220px}
+    .btn:hover{transform:translateY(-1px)}
+    .mut{color:var(--mut);font-size:.95rem}
+    #app{display:none;margin-top:14px;text-align:left}
+    .appbox{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+    .badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#18264a;color:#9fc7ff;font-size:.8rem}
+    .iosTip{display:none;margin-top:14px}
+    .qr{margin-top:18px}
+    .bar{height:8px;border-radius:8px;background:#0b1430;overflow:hidden;margin:12px 0 6px}
+    .fill{height:100%;width:0;background:linear-gradient(90deg,#56c3ff,#7ee0ff);transition:width .5s ease}
+    .row{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+    .ghost{display:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="orb"></div>
+  <h1>Your Orb</h1>
+  <p class="sub">One link. One button. You're in — no store required.</p>
+
+  <div class="card">
+    <div class="row">
+      <button id="enterBtn" class="btn">Enter My Orb</button>
+      <button id="installBtn" class="btn ghost">Install App</button>
+      <a id="apkBtn" class="btn ghost" href="#" download>Download APK</a>
+    </div>
+    <div class="bar"><div id="fill" class="fill"></div></div>
+    <div class="mut" id="status"></div>
+    <div class="iosTip" id="iosTip">
+      <p class="mut">On iPhone: tap <b>Share</b> → <b>Add to Home Screen</b> to install. (Apple requires this.)</p>
+    </div>
+    <div class="qr"><a class="mut" href="qr.html">Need a QR for this page?</a></div>
+  </div>
+
+  <div id="app" class="appbox">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      <div><span class="badge">Orb App Shell</span></div>
+    </div>
+    <p style="margin:12px 0 0">Welcome in. This shell works offline after first load. Live modules wire in next.</p>
+    <ul>
+      <li>Dashboard, Credits, Proof modules</li>
+      <li>Avatar hub (3D ready), Messages, Community</li>
+      <li>Updates auto‑cache in the background</li>
+    </ul>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
