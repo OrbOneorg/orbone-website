@@ -1,276 +1,438 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orb One - Radical Trust. Real Privacy.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0A0A; /* A deep, near-black for a premium feel */
-        }
-        .hero-gradient {
-            background: radial-gradient(ellipse at center, rgba(29, 78, 216, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
-        }
-        .glow-button {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), 0 0 5px rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease-in-out;
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.6), 0 0 10px rgba(59, 130, 246, 0.5);
-            transform: scale(1.05);
-        }
-        .feature-card, .founder-card, .orb-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .feature-card:hover, .founder-card:hover, .orb-card:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orb One — Radical Trust. Real Privacy.</title>
+  <meta name="description" content="Orb One is a proof‑first, private‑by‑default identity & receipts layer and a sovereign AI assistant — offline‑first, never spying, built for real life.">
+  <link rel="canonical" href="https://orbone.org/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Orb One — Radical Trust. Real Privacy.">
+  <meta property="og:description" content="Proof‑first identity & receipts. Offline‑first. Human‑readable and cryptographically verifiable.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://orbone.org/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b1220">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{ --bg:#0b1220; --bg2:#0e1526; --ink:#eaf2ff; --sub:#a9b4c9; --accent:#6ee7b7; --accent2:#ffd166; --muted:#132037; --line:#141c2e; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{ margin:0; background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color:var(--ink); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a{color:var(--accent2); text-decoration:none} a:hover,a:focus{opacity:.9}
+    header{position:sticky;top:0;background:rgba(11,18,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px} .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)} .logo{width:28px;height:28px;display:inline-block}
+    nav a{text-decoration:none;color:var(--sub);margin-left:1rem} nav a:hover, nav a:focus{color:var(--ink)}
+    .hero{padding:clamp(56px,8vw,108px) 0;border-bottom:1px solid var(--line);background:
+      radial-gradient(900px 500px at 10% -10%, rgba(80,227,194,.08), transparent),
+      radial-gradient(900px 500px at 110% 10%, rgba(255,209,102,.07), transparent) }
+    h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:.2em 0 .3em} h2{font-size:clamp(20px,3vw,28px);line-height:1.2;margin:0 0 .6rem}
+    p.lead{color:var(--sub);font-size:clamp(16px,2.2vw,20px);max-width:62ch}
+    .cta{margin-top:1.1rem;display:flex;flex-wrap:wrap;gap:.8rem}
+    .btn{appearance:none;border:1px solid #24304a;background:#121a2b;color:var(--ink); padding:.75rem 1rem;border-radius:.6rem;font-weight:600;text-decoration:none;display:inline-flex;gap:.5rem;align-items:center}
+    .btn:hover{border-color:#324263;background:#0f1626} .btn.primary{background:linear-gradient(135deg,var(--accent2),#ffb703);color:#0b1220;border:none} .btn.ghost{border-color:#2b3753}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px} section{padding:64px 0;border-bottom:1px solid var(--line)}
+    .card{background:rgba(20,28,46,.6);border:1px solid #1b2640;border-radius:.8rem;padding:1rem} .muted{color:var(--sub)}
+    ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:.75rem} li .dot{width:8px;height:8px;border-radius:999px;background:var(--accent);display:inline-block;margin-right:.5rem}
+    .pillinfo{background:#0f1626;border:1px solid #233152;border-radius:999px;padding:.2rem .6rem;display:inline-block;margin-left:.4rem}
+    .range-row{display:flex;align-items:center;gap:.6rem;margin:.45rem 0} .bar{height:14px;background:#0f1626;border:1px solid #233152;border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,#50e3c2,#ffd166);width:0%}
+    pre.code{overflow:auto;background:#0f1626;border:1px solid #233152;border-radius:.6rem;padding:.7rem}
+    .viewer{position:relative;height:480px;border:1px solid #1b2640;border-radius:.8rem;background:radial-gradient(800px 400px at 30% -10%, rgba(80,227,194,.07), transparent), #0d1527}
+    .viewer canvas{display:block;width:100%;height:100%} .viewer .hint{position:absolute;left:12px;bottom:12px;color:#a9b4c9;font-size:.9rem}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px} .center{text-align:center}
+    .pillnum{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#0f1626;border:1px solid #233152;margin-bottom:.5rem}
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .avatar{width:64px;height:64px;border-radius:999px;background:#0f1626;border:1px solid #233152;display:flex;align-items:center;justify-content:center;font-weight:700;color:#ffd166}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} .three,.team{grid-template-columns:1fr} nav{display:none} }
+  </style>
 </head>
-<body class="text-gray-200">
+<body>
+  <header>
+    <div class="wrap row">
+      <a class="brand" href="#top" aria-label="Orb One home">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#50e3c2"/><stop offset="1" stop-color="#ffd166"/></linearGradient></defs>
+          <circle cx="16" cy="16" r="12" fill="none" stroke="url(#g)" stroke-width="3"/>
+          <circle cx="16" cy="16" r="2" fill="#ffd166"/>
+        </svg>
+        <strong>Orb One</strong>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#broken">The Old Way</a>
+        <a href="#proofs">Proof‑first</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#math">Math</a>
+        <a href="#mesh3d">Mesh 3D</a>
+        <a href="#playground">Playground</a>
+        <a href="#steps">3 Steps</a>
+        <a href="#stages">Stages</a>
+        <a href="#founders">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#founding">Join Us</a>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-30 backdrop-blur-lg border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-500">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM12 7C12.5523 7 13 7.44772 13 8V11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H13V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V13H8C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H11V8C11 7.44772 11.4477 7 12 7Z" fill="currentColor"/>
-                </svg>
-                <h1 class="text-xl font-bold text-white">OrbOne</h1>
-            </div>
-            <a href="#join" class="bg-gray-800 text-white py-2 px-5 rounded-lg text-sm font-semibold hover:bg-gray-700 transition">Join Us</a>
+  <main>
+    <section class="hero">
+      <div class="wrap grid">
+        <div style="grid-column:1/10">
+          <h1>Individuals through Sovereignty.</h1>
+          <p class="lead">One point observer. Three to match. Privacy‑by‑design receipts, a resilient mesh, and a clear decision loop that keeps humans in charge.</p>
+          <div class="cta">
+            <a class="btn primary" href="#founding">Join the Founders’ Circle</a>
+            <a class="btn ghost" href="mailto:abbey.orbone@gmail.com?subject=Orb%20One%20—%20Partner%20Enquiry">Contact Abbey</a>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- Hero Section -->
-    <main class="pt-24">
-        <section class="hero-gradient min-h-screen flex items-center justify-center text-center -mt-24">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
-                    <div class="fade-in">
-                        <div class="mb-8 w-24 h-24 mx-auto bg-blue-500/10 border border-blue-500/30 rounded-full flex items-center justify-center">
-                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-400">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z" fill="currentColor" fill-opacity="0.2"/>
-                                <path d="M12 7V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                             </svg>
-                        </div>
-                        <h1 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter">Radical Trust. <span class="text-blue-400">Real Privacy.</span></h1>
-                        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                            OrbOne is a sovereign AI assistant that puts you back in control. Privacy by design, offline-first, and never spying. This is technology that works for you, not for advertisers.
-                        </p>
-                        <a href="https://tally.so/r/31L4Zg" target="_blank" class="glow-button inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition">Join the Founders’ Circle</a>
-                        <p class="mt-6 text-sm text-gray-500 fade-in" style="transition-delay: 600ms;">
-                            Or, <a href="https://square.link/u/dSWC57Db" target="_blank" class="text-blue-400 font-semibold hover:underline">become a Founding Member</a> with a $25 refundable deposit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">The Old Way is Broken.</h2>
-                    <p class="mt-4 text-lg text-gray-400">Big Tech says you can’t have AI without giving up your data. We disagree.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="feature-card p-8 rounded-2xl fade-in">
-                        <div class="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Privacy by Design</h3>
-                        <p class="text-gray-400">Your data never leaves your device unencrypted. Our architecture makes abuse impossible, not just against the rules.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="feature-card p-8 rounded-2xl fade-in" style="transition-delay: 200ms;">
-                         <div class="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Offline-First</h3>
-                        <p class="text-gray-400">OrbOne works even without an internet connection. True sovereignty means you’re in control, online or off.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="feature-card p-8 rounded-2xl fade-in" style="transition-delay: 400ms;">
-                         <div class="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Community Governed</h3>
-                        <p class="text-gray-400">Built like open-source, but with a legal “Data Constitution.” This is technology for people, governed by people.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How it Works Section -->
-        <section class="py-20 md:py-32 bg-black bg-opacity-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-20 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Simple. Sovereign. Secure.</h2>
-                    <p class="mt-4 text-lg text-gray-400">A new relationship with your data in three steps.</p>
-                </div>
-                <div class="relative">
-                    <!-- Dashed line for desktop -->
-                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gray-700 -translate-y-1/2">
-                        <svg width="100%" height="2"><line x1="0" y1="1" x2="100%" y2="1" stroke="currentColor" stroke-width="2" stroke-dasharray="8 8"/></svg>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-12 relative">
-                        <!-- Step 1 -->
-                        <div class="text-center fade-in">
-                            <div class="mb-6 w-20 h-20 mx-auto bg-gray-800 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400 text-2xl font-bold">1</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Own Your Orb</h3>
-                            <p class="text-gray-400">Your Orb is your personal AI, not a cloud service. What's yours is yours, period.</p>
-                        </div>
-                        <!-- Step 2 -->
-                        <div class="text-center fade-in" style="transition-delay: 200ms;">
-                            <div class="mb-6 w-20 h-20 mx-auto bg-gray-800 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400 text-2xl font-bold">2</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Connect Securely</h3>
-                            <p class="text-gray-400">Form private, peer-to-peer communities without centralized servers spying on you.</p>
-                        </div>
-                        <!-- Step 3 -->
-                        <div class="text-center fade-in" style="transition-delay: 400ms;">
-                            <div class="mb-6 w-20 h-20 mx-auto bg-gray-800 border-2 border-blue-500 rounded-full flex items-center justify-center text-blue-400 text-2xl font-bold">3</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Live Freely</h3>
-                            <p class="text-gray-400">Experience a calmer, more private internet where your data serves you, not corporations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Orbs for Life Section -->
-        <section class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">An Orb for Every Stage of Life.</h2>
-                    <p class="mt-4 text-lg text-gray-400">Privacy and digital sovereignty are lifelong rights. OrbOne is designed to evolve with you.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Kids Orb -->
-                    <div class="orb-card p-8 rounded-2xl fade-in">
-                        <div class="bg-green-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">For Kids</h3>
-                        <p class="text-gray-400">A safe, parent-managed introduction to the digital world. Teaches healthy habits with built-in educational content and robust safety filters. No ads, no tracking.</p>
-                    </div>
-                    <!-- Teen Orb -->
-                    <div class="orb-card p-8 rounded-2xl fade-in" style="transition-delay: 200ms;">
-                         <div class="bg-yellow-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">For Teens</h3>
-                        <p class="text-gray-400">Empowers growing independence with tools for study, creativity, and secure communication with friends, all while respecting their privacy and data ownership.</p>
-                    </div>
-                    <!-- Adult Orb -->
-                    <div class="orb-card p-8 rounded-2xl fade-in" style="transition-delay: 400ms;">
-                         <div class="bg-red-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" /></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">For Adults</h3>
-                        <p class="text-gray-400">A powerful productivity and life management tool. Securely manage your finances, health, and communications with an AI that works for you, not a corporation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Founders Section -->
-        <section class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Built on a Foundation of Trust</h2>
-                    <p class="mt-4 text-lg text-gray-400">We're building the future we want to live in—one based on privacy, resilience, and human dignity.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Steven -->
-                    <div class="founder-card p-8 rounded-2xl text-center fade-in">
-                        <img src="https://placehold.co/128x128/1F2937/FFFFFF?text=SW" alt="Steven Waterstone" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gray-700">
-                        <h3 class="text-2xl font-bold text-white">Steven Waterstone</h3>
-                        <p class="text-blue-400 font-semibold mb-3">Founder & Architect</p>
-                        <p class="text-gray-400">The architect of the Nexus Protocol, with a decade of experience in building decentralized, privacy-first systems.</p>
-                    </div>
-                    <!-- Abbey -->
-                    <div class="founder-card p-8 rounded-2xl text-center fade-in" style="transition-delay: 200ms;">
-                        <img src="https://placehold.co/128x128/1F2937/FFFFFF?text=Abbey" alt="Abbey" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gray-700">
-                        <h3 class="text-2xl font-bold text-white">Abbey</h3>
-                        <p class="text-blue-400 font-semibold mb-3">Comms Master & Operations</p>
-                        <p class="text-gray-400">Leading communications, investor relations, and operations to translate our vision into real-world traction.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA / Founding Member Section -->
-        <section id="join" class="py-20 md:py-32 bg-blue-900/10">
-             <div class="container mx-auto px-6 text-center">
-                 <div class="max-w-3xl mx-auto fade-in">
-                    <div class="mb-8 w-24 h-24 mx-auto bg-blue-500/10 border border-blue-500/30 rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Become a Founding Member.</h2>
-                    <p class="mt-4 text-lg text-gray-400 mb-10">
-                        This is bigger than a waitlist. A fully refundable $25 deposit secures your place at the front of the line for early access, exclusive updates, and a voice in shaping the future of private AI. This is your chance to stand with us at the very beginning.
-                    </p>
-                    <a href="https://square.link/u/dSWC57Db" target="_blank" class="glow-button inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition">Secure Your Spot ($25 Refundable)</a>
-                    <p class="mt-6 text-sm text-gray-500">
-                        Want to follow along for free? <a href="https://tally.so/r/31L4Zg" target="_blank" class="text-blue-400 font-semibold hover:underline">Join the Founders' Circle waitlist.</a>
-                    </p>
-                 </div>
-             </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-800">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            <p>&copy; 2025 Veridian. Building a future on Radical Trust.</p>
+    <section id="broken">
+      <div class="wrap center">
+        <h2>The Old Way is Broken.</h2>
+        <p class="muted">Big Tech says you can’t have AI without giving up your data. We disagree.</p>
+        <div class="three" style="margin-top:1rem">
+          <div class="card"><strong>Privacy by Design</strong><p class="muted">Your data never leaves your device unencrypted. Our architecture makes abuse impossible, not just against the rules.</p></div>
+          <div class="card"><strong>Offline‑First</strong><p class="muted">Use Orb One even without internet. Sovereignty means you’re in control, online or off.</p></div>
+          <div class="card"><strong>Community‑Governed</strong><p class="muted">Built like open‑source, with a legal “Data Constitution.” Tools for people, governed by people.</p></div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Simple fade-in on scroll animation
-        const faders = document.querySelectorAll('.fade-in');
+    <section id="proofs">
+      <div class="wrap grid">
+        <div style="grid-column:1/7">
+          <h2>Proof‑first receipts (what makes us different)</h2>
+          <p class="muted">Every action can emit a human‑readable receipt paired with a compact cryptographic proof — private by default, shareable only when you choose.</p>
+          <ul class="clean">
+            <li><span class="dot"></span><strong>Local‑first:</strong> Create a signed receipt on‑device in &lt; 300 ms (target).</li>
+            <li><span class="dot"></span><strong>Queue & sync:</strong> Hold safely for 48h+ offline, then sync with zero data loss (target).</li>
+            <li><span class="dot"></span><strong>Glass‑House:</strong> Browse, share, and verify proofs in a simple viewer.</li>
+          </ul>
+        </div>
+        <div style="grid-column:7/13">
+          <div class="card" aria-labelledby="demo-title">
+            <h3 id="demo-title">What a receipt looks like</h3>
+<pre class="card" style="overflow:auto;background:#0f1626;border-color:#233152"><code>RECEIPT v1
+Event: Consent Granted
+Who: #pseudonymous user key (local)
+When: 2025‑10‑14 10:32 AEST
+Where: Device ORB‑A12 (offline)
+Details: “Share my allergy info with Clinic X for 7 days.”
+Hash: 0x2a1f…9c7e
+Sig : ed25519 8c1b…f02a</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const appearOptions = {
-            threshold: 0.2,
-            rootMargin: "0px 0px -50px 0px"
-        };
+    <section id="privacy">
+      <div class="wrap grid">
+        <div style="grid-column:1/13"><h2>Privacy by Design</h2></div>
+        <div style="grid-column:1/5"><div class="card"><strong>Data minimisation</strong><p class="muted">Only what’s necessary; most receipts contain no direct identifiers.</p></div></div>
+        <div style="grid-column:5/9"><div class="card"><strong>User‑held keys</strong><p class="muted">Secrets live locally; sharing is explicit and revocable.</p></div></div>
+        <div style="grid-column:9/13"><div class="card"><strong>Transparent proofs</strong><p class="muted">Human text paired with a checkable signature.</p></div></div>
+      </div>
+    </section>
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
+    <section id="math" style="padding:64px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <h2>Math that keeps Orb One honest</h2>
+        <p class="muted">Plain words first. Formal bits follow. All proofs are human‑readable and machine‑verifiable.</p>
+        <div class="grid" style="margin-top:1rem;grid-template-columns:repeat(12,1fr);gap:20px">
+          <div class="card" style="grid-column:1/7"><h3>Receipts (compact formalism)</h3>
+            <p class="muted">Payload \(M_i = \text{cJSON}(\text{event},\text{subject},t,\text{scope},\text{prev})\). Hash \(h_i = H(M_i \Vert \text{nonce}_i)\). Signature \(\sigma_i = \text{Sign}_{sk}(h_i)\). Chain \(H_i = H(H_{i-1} \Vert h_i)\). Verify \(\text{Verify}_{pk}(h_i, \sigma_i) \land H_i = H(H_{i-1} \Vert h_i)\).</p>
+          </div>
+          <div class="card" style="grid-column:7/13"><h3>Loop (observer ⇄ action ⇄ world)</h3>
+            <p class="muted">State: \(s_{t+1} = F(s_t, a_t, \eta_t)\). Observation: \(o_t = O(s_t)\). Policy: \(a_t = \pi(o_t, g)\). LHI: <code>w₁·on_time + w₂·consistency − w₃·error_rate</code>.</p>
+          </div>
+        </div>
+        <div class="grid" style="margin-top:1rem;grid-template-columns:repeat(12,1fr);gap:20px">
+          <div class="card" style="grid-column:1/7"><h3>Mesh reliability (MRI)</h3>
+            <p class="muted">\(G=(V,E)\). Path reliability \(R(P_i)=\prod_{e\in P_i} p_e\). Disjoint paths \(P_1..P_k\): \[\mathbf{MRI}=1-\prod_i (1-R(P_i))\]</p>
+          </div>
+          <div class="card" style="grid-column:7/13"><h3>Sanctum stability (SSI)</h3>
+            <p class="muted">\(\textbf{SSI}=w_U U+w_D D+w_R R+w_C C\), \(\sum w=1\). Defaults: 0.4/0.3/0.2/0.1</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+    <section id="mesh3d">
+      <div class="wrap grid">
+        <div style="grid-column:1/6">
+          <h2>Mesh — in 3D cells</h2>
+          <p class="muted">A lattice of “cells” (devices/links). Health shades from teal (healthy) to amber (degraded). Toggle faults to watch resilience. Rotate with drag, zoom with scroll.</p>
+          <div class="card">
+            <div class="range-row"><label>Grid size</label><input id="gsize" type="range" min="3" max="9" step="1" value="6" oninput="Mesh3D && Mesh3D.updateGrid()"><span id="gsizeVal" class="pillinfo">6</span></div>
+            <div class="range-row"><label>Fault rate</label><input id="fault" type="range" min="0" max="0.5" step="0.01" value="0.08" oninput="Mesh3D && Mesh3D.updateFault()"><span id="faultVal" class="pillinfo">0.08</span></div>
+            <div class="range-row"><label>Link density</label><input id="ldens" type="range" min="0.1" max="1" step="0.05" value="0.7" oninput="Mesh3D && Mesh3D.updateLinks()"><span id="ldensVal" class="pillinfo">0.70</span></div>
+            <div class="range-row"><label><input id="animate" type="checkbox" checked onchange="Mesh3D && Mesh3D.toggleAnim()"> Animate faults</label></div>
+          </div>
+          <p class="muted" style="margin-top:.5rem">Note: the viewer loads a graphics library from a CDN. If local files block modules (some iPads do), the page auto‑falls back to a classic script loader.</p>
+        </div>
+        <div style="grid-column:6/13">
+          <div class="viewer" id="viewer">
+            <div class="hint">Drag to rotate • Scroll to zoom • Teal = healthy • Amber = degraded</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playground">
+      <div class="wrap">
+        <h2>Mesh & Loop Playground</h2>
+        <p class="muted">Tweak sliders and see the math update live. This helps partners understand reliability and decision loops without reading a textbook.</p>
+        <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:20px">
+          <div class="card" style="grid-column:1/7">
+            <h3 style="margin-top:0">Mesh Reliability (MRI)</h3>
+            <div class="range-row">
+              <label for="kpaths"><strong>Disjoint paths (k)</strong></label>
+              <input id="kpaths" type="range" min="1" max="6" step="1" value="2" oninput="renderPaths()">
+              <span id="kpathsVal" class="pillinfo">2</span>
+            </div>
+            <div id="paths"></div>
+            <div style="margin-top:.8rem">
+              <div class="bar" aria-label="MRI"><span id="mriBar"></span></div>
+              <p class="muted">MRI = <span id="mriVal">0.0000</span></p>
+              <details><summary>Show calculation</summary><pre id="mriCalc" class="code"></pre></details>
+            </div>
+          </div>
+          <div class="card" style="grid-column:7/13">
+            <h3 style="margin-top:0">Sanctum Stability (SSI) & Loop Health (LHI)</h3>
+            <h4>SSI</h4>
+            <div class="range-row"><label>Uptime (U)</label><input id="U" type="range" min="0" max="1" step="0.01" value="0.98" oninput="recalc()"><span id="UVal" class="pillinfo">0.98</span></div>
+            <div class="range-row"><label>Consistency (D)</label><input id="D" type="range" min="0" max="1" step="0.01" value="0.97" oninput="recalc()"><span id="DVal" class="pillinfo">0.97</span></div>
+            <div class="range-row"><label>Resilience (R)</label><input id="R" type="range" min="0" max="1" step="0.01" value="0.90" oninput="recalc()"><span id="RVal" class="pillinfo">0.90</span></div>
+            <div class="range-row"><label>Cost efficiency (C)</label><input id="C" type="range" min="0" max="1" step="0.01" value="0.70" oninput="recalc()"><span id="CVal" class="pillinfo">0.70</span></div>
+            <div class="range-row"><label>wU</label><input id="wU" type="range" min="0" max="1" step="0.01" value="0.40" oninput="recalc()"><span id="wUVal" class="pillinfo">0.40</span></div>
+            <div class="range-row"><label>wD</label><input id="wD" type="range" min="0" max="1" step="0.01" value="0.30" oninput="recalc()"><span id="wDVal" class="pillinfo">0.30</span></div>
+            <div class="range-row"><label>wR</label><input id="wR" type="range" min="0" max="1" step="0.01" value="0.20" oninput="recalc()"><span id="wRVal" class="pillinfo">0.20</span></div>
+            <div class="range-row"><label>wC</label><input id="wC" type="range" min="0" max="1" step="0.01" value="0.10" oninput="recalc()"><span id="wCVal" class="pillinfo">0.10</span></div>
+            <p class="muted">Weights normalise to 1 automatically.</p>
+            <div class="bar" aria-label="SSI"><span id="ssiBar"></span></div>
+            <p class="muted">SSI = <span id="ssiVal">0.0000</span></p>
+            <h4 style="margin-top:1rem">LHI</h4>
+            <div class="range-row"><label>On‑time</label><input id="onTime" type="range" min="0" max="1" step="0.01" value="0.85" oninput="recalc()"><span id="onTimeVal" class="pillinfo">0.85</span></div>
+            <div class="range-row"><label>Consistency</label><input id="consistency" type="range" min="0" max="1" step="0.01" value="0.90" oninput="recalc()"><span id="consistencyVal" class="pillinfo">0.90</span></div>
+            <div class="range-row"><label>Error rate</label><input id="errorRate" type="range" min="0" max="1" step="0.01" value="0.05" oninput="recalc()"><span id="errorRateVal" class="pillinfo">0.05</span></div>
+            <div class="range-row"><label>w1</label><input id="w1" type="range" min="0" max="1" step="0.01" value="0.50" oninput="recalc()"><span id="w1Val" class="pillinfo">0.50</span></div>
+            <div class="range-row"><label>w2</label><input id="w2" type="range" min="0" max="1" step="0.01" value="0.40" oninput="recalc()"><span id="w2Val" class="pillinfo">0.40</span></div>
+            <div class="range-row"><label>w3</label><input id="w3" type="range" min="0" max="1" step="0.01" value="0.10" oninput="recalc()"><span id="w3Val" class="pillinfo">0.10</span></div>
+            <p class="muted">LHI = w1·on‑time + w2·consistency − w3·error‑rate</p>
+            <div class="bar" aria-label="LHI"><span id="lhiBar"></span></div>
+            <p class="muted">LHI = <span id="lhiVal">0.0000</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps">
+      <div class="wrap center">
+        <h2>Simple. Sovereign. Secure.</h2>
+        <p class="muted">A new relationship with your data in three steps.</p>
+        <div class="three" style="margin-top:1rem">
+          <div class="card"><div class="pillnum">1</div><strong>Own Your Orb</strong><p class="muted">Your Orb is your personal AI, not a cloud service. What’s yours is yours, period.</p></div>
+          <div class="card"><div class="pillnum">2</div><strong>Connect Securely</strong><p class="muted">Form private, peer‑to‑peer communities without centralised servers spying on you.</p></div>
+          <div class="card"><div class="pillnum">3</div><strong>Live Freely</strong><p class="muted">Experience a calmer, more private internet where your data serves you, not corporations.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stages">
+      <div class="wrap center">
+        <h2>An Orb for Every Stage of Life.</h2>
+        <p class="muted">Privacy and digital sovereignty are lifelong rights. Orb One evolves with you.</p>
+        <div class="three" style="margin-top:1rem">
+          <div class="card"><strong>For Kids</strong><p class="muted">Parent‑managed, ad‑free learning with strong safety filters. No tracking.</p></div>
+          <div class="card"><strong>For Teens</strong><p class="muted">Growing independence with tools for study, creativity, and secure communication — without data extraction.</p></div>
+          <div class="card"><strong>For Adults</strong><p class="muted">Powerful life management with receipts for finances, health, and communications — on your terms.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="founders">
+      <div class="wrap center">
+        <h2>Built on a Foundation of Trust</h2>
+        <p class="muted">We’re building the future we want to live in — privacy, resilience, and human dignity.</p>
+        <div class="team" style="margin-top:1rem">
+          <div class="card center">
+            <div class="avatar">A</div>
+            <p><strong>Abbey</strong><br><span class="muted">Founder & Operations</span></p>
+            <p class="muted">Comms, partnerships, and delivery — translating the vision into real‑world traction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap grid">
+        <div style="grid-column:1/8">
+          <h2>Partner, invest, or research with us</h2>
+          <p class="muted">CSIRO, universities, and aligned companies: we’re keen to co‑design pilots around verifiable receipts, private‑by‑default assistants, and resilient mesh deployments.</p>
+          <p>Contact Abbey: <a href="mailto:abbey.orbone@gmail.com">abbey.orbone@gmail.com</a></p>
+        </div>
+        <div style="grid-column:8/13">
+          <div class="card">
+            <strong>What to expect</strong>
+            <ul class="muted">
+              <li>Clear problem definition and sample receipts</li>
+              <li>Privacy review & DPIA support</li>
+              <li>Success metrics: MRI/LHI/SSI tracked</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="founding">
+      <div class="wrap center">
+        <h2>Become a Founding Member.</h2>
+        <p class="muted">A fully refundable $25 deposit secures your spot for early access, updates, and a voice in shaping private AI. Stand with us from the very beginning.</p>
+        <div class="cta" style="justify-content:center">
+          <a class="btn primary" href="mailto:abbey.orbone@gmail.com?subject=Founding%20Member%20—%20Orb%20One&body=Hi%20Abbey%2C%20I%27d%20like%20to%20reserve%20a%20Founding%20Member%20spot.%20Please%20send%20the%20checkout%20link.">Secure Your Spot ($25 Refunded)</a>
+          <a class="btn ghost" href="mailto:abbey.orbone@gmail.com?subject=Orb%20One%20—%20Join%20Founders%27%20Circle">Join the Founders’ Circle (updates)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="grid">
+        <div style="grid-column:1/9">© 2025 Orb One. Private‑by‑default. Proof‑first.</div>
+        <div style="grid-column:9/13;text-align:right"><span class="muted">Official Site</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 3D Mesh loader: tries ESM imports; if blocked (iPad local files), falls back to classic scripts. -->
+  <script>
+    (async () => {
+      function loadScript(src) {
+        return new Promise((res, rej) => {
+          const s = document.createElement('script');
+          s.src = src; s.onload = () => res(); s.onerror = (e) => rej(e);
+          document.head.appendChild(s);
         });
-    </script>
+      }
+      let THREE, OrbitControls;
+      try {
+        const mod = await import('https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js');
+        const ex  = await import('https://cdn.jsdelivr.net/npm/three@0.160/examples/jsm/controls/OrbitControls.js');
+        THREE = mod; OrbitControls = ex.OrbitControls;
+      } catch (e) {
+        // Fallback for iPad "file://" + module policy
+        try {
+          await loadScript('https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js');
+          await loadScript('https://cdn.jsdelivr.net/npm/three@0.160/examples/js/controls/OrbitControls.js');
+          THREE = window.THREE; OrbitControls = window.THREE.OrbitControls;
+        } catch (e2) {
+          console.warn('3D viewer unavailable.', e2);
+          window.Mesh3D = { updateGrid(){}, updateFault(){}, updateLinks(){}, toggleAnim(){} };
+          return;
+        }
+      }
+
+      const Mesh3D = {
+        scene:null,camera:null,renderer:null,controls:null,inst:null,links:null,anim:true,N:6,spacing:1.2,fault:0.08,linkDensity:0.7,
+        colors:{ healthy:new THREE.Color('#50e3c2'), warn:new THREE.Color('#ffd166') },
+        tmp: new THREE.Object3D(),
+        init(){
+          const container=document.getElementById('viewer'); if(!container) return;
+          const w=container.clientWidth,h=container.clientHeight;
+          this.scene=new THREE.Scene();
+          this.camera=new THREE.PerspectiveCamera(45,w/h,0.1,100); this.camera.position.set(6,6,8);
+          this.renderer=new THREE.WebGLRenderer({antialias:true,alpha:true}); this.renderer.setSize(w,h); this.renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+          container.appendChild(this.renderer.domElement);
+          const amb=new THREE.AmbientLight(0xffffff,0.9); this.scene.add(amb);
+          const dir=new THREE.DirectionalLight(0xffffff,0.6); dir.position.set(5,10,7); this.scene.add(dir);
+          // Controls: constructor differs between ESM and UMD
+          this.controls = OrbitControls.prototype && OrbitControls.length ? new OrbitControls(this.camera,this.renderer.domElement) : new OrbitControls(this.camera,this.renderer.domElement);
+          if (this.controls.enableDamping !== undefined) this.controls.enableDamping = true;
+          this.buildCells(); this.buildLinks();
+          window.addEventListener('resize',()=>this.onResize()); this.loop();
+        },
+        pos(i,j,k){ const s=this.spacing,n=this.N,off=(n-1)*s*0.5; return new THREE.Vector3(i*s-off,j*s-off,k*s-off); },
+        buildCells(){
+          if(this.inst){ this.scene.remove(this.inst); this.inst.geometry.dispose(); this.inst.material.dispose(); }
+          const n=this.N,total=n*n*n,geo=new THREE.IcosahedronGeometry(0.18,1);
+          const mat=new THREE.MeshStandardMaterial({ color:0xffffff, metalness:0.2, roughness:0.35, vertexColors:true });
+          this.inst=new THREE.InstancedMesh(geo,mat,total);
+          this.inst.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+          let id=0;
+          for(let x=0;x<n;x++) for(let y=0;y<n;y++) for(let z=0;z<n;z++){
+            const p=this.pos(x,y,z); this.tmp.position.copy(p);
+            this.tmp.rotation.set(Math.random()*0.2,Math.random()*0.2,Math.random()*0.2);
+            this.tmp.scale.setScalar(1+(Math.random()-0.5)*0.05); this.tmp.updateMatrix();
+            this.inst.setMatrixAt(id,this.tmp.matrix); if (this.inst.setColorAt) this.inst.setColorAt(id,this.colors.healthy.clone()); id++;
+          }
+          if (this.inst.instanceColor) this.inst.instanceColor.needsUpdate=true;
+          this.scene.add(this.inst);
+        },
+        buildLinks(){
+          if(this.links){ this.scene.remove(this.links); this.links.geometry.dispose(); this.links.material.dispose(); }
+          const n=this.N,mat=new THREE.LineBasicMaterial({color:0x2a3550,transparent:true,opacity:0.75});
+          const pts=[]; const add=(a,b)=>{pts.push(a.x,a.y,a.z,b.x,b.y,b.z);};
+          for(let x=0;x<n;x++) for(let y=0;y<n;y++) for(let z=0;z<n;z++){
+            const p=this.pos(x,y,z);
+            if(x+1<n && Math.random()<this.linkDensity) add(p,this.pos(x+1,y,z));
+            if(y+1<n && Math.random()<this.linkDensity) add(p,this.pos(x,y+1,z));
+            if(z+1<n && Math.random()<this.linkDensity) add(p,this.pos(x,y,z+1));
+          }
+          const g=new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pts,3));
+          this.links=new THREE.LineSegments(g,mat); this.scene.add(this.links);
+        },
+        stepFaults(t){
+          if(!this.inst) return; const total=this.inst.count;
+          for(let i=0;i<total;i++){ const noise=(Math.sin(12.9898*i+t*0.002)*43758.5453)%1;
+            const p=this.fault*(0.6+0.4*noise); const bad=(noise<p);
+            if (this.inst.setColorAt) this.inst.setColorAt(i, bad?this.colors.warn:this.colors.healthy);
+          }
+          if (this.inst.instanceColor) this.inst.instanceColor.needsUpdate=true;
+        },
+        loop(){ requestAnimationFrame(()=>this.loop()); if(this.anim) this.stepFaults(performance.now()); if(this.controls.update) this.controls.update(); this.renderer.render(this.scene,this.camera); },
+        onResize(){ const c=document.getElementById('viewer'); if(!c) return; const w=c.clientWidth,h=c.clientHeight; this.camera.aspect=w/h; this.camera.updateProjectionMatrix(); this.renderer.setSize(w,h); },
+        updateGrid(){ const el=document.getElementById('gsize'); if(!el) return; this.N=parseInt(el.value,10); document.getElementById('gsizeVal').textContent=String(this.N); this.buildCells(); this.buildLinks(); },
+        updateFault(){ const el=document.getElementById('fault'); if(!el) return; this.fault=parseFloat(el.value); document.getElementById('faultVal').textContent=this.fault.toFixed(2); },
+        updateLinks(){ const el=document.getElementById('ldens'); if(!el) return; this.linkDensity=parseFloat(el.value); document.getElementById('ldensVal').textContent=this.linkDensity.toFixed(2); this.buildLinks(); },
+        toggleAnim(){ const el=document.getElementById('animate'); if(!el) return; this.anim=el.checked; }
+      };
+      window.Mesh3D = Mesh3D;
+      window.addEventListener('DOMContentLoaded', ()=>Mesh3D.init());
+    })();
+  </script>
+
+  <script>
+    function renderPaths(){const k=parseInt(document.getElementById('kpaths').value,10);document.getElementById('kpathsVal').textContent=k;const w=document.getElementById('paths');w.innerHTML='';for(let i=1;i<=k;i++){const card=document.createElement('div');card.className='card';card.style.marginTop='.4rem';card.innerHTML=`
+      <details open>
+        <summary><strong>Path ${i}</strong> — R(P<sub>${i}</sub>) <span class="pillinfo" id="Ri${i}">0.950</span></summary>
+        <div class="range-row"><label>Path reliability</label>
+          <input id="path${i}" type="range" min="0" max="1" step="0.001" value="0.95" oninput="updatePath(${i})">
+        </div>
+        <details>
+          <summary>Edge-level (optional)</summary>
+          <div aria-live="polite" style="margin:.4rem 0">
+            <div class="range-row"><label>Edges in path</label><input id="edgesN${i}" type="range" min="1" max="6" step="1" value="2" oninput="renderEdges(${i})"><span id="edgesNVal${i}" class="pillinfo">2</span></div>
+            <div id="edges${i}"></div>
+          </div>
+        </details>
+      </details>`;w.appendChild(card);renderEdges(i);}recalc()}
+    function renderEdges(i){const n=parseInt(document.getElementById('edgesN'+i).value,10);document.getElementById('edgesNVal'+i).textContent=n;const c=document.getElementById('edges'+i);c.innerHTML='';for(let e=1;e<=n;e++){const row=document.createElement('div');row.className='range-row';row.innerHTML=`<label>e${e}</label>
+        <input id="p_${i}_${e}" type="range" min="0" max="1" step="0.001" value="0.975" oninput="updateEdgesPath(${i})">
+        <span id="pval_${i}_${e}" class="pillinfo">0.975</span>`;c.appendChild(row);}updateEdgesPath(i)}
+    function updateEdgesPath(i){const n=parseInt(document.getElementById('edgesN'+i).value,10);let product=1.0;for(let e=1;e<=n;e++){const s=document.getElementById('p_'+i+'_'+e);const v=parseFloat(s.value);document.getElementById('pval_'+i+'_'+e).textContent=v.toFixed(3);product*=v}const path=document.getElementById('path'+i);path.value=product.toFixed(3);document.getElementById('Ri'+i).textContent=parseFloat(path.value).toFixed(3);recalc()}
+    function updatePath(i){const v=parseFloat(document.getElementById('path'+i).value);document.getElementById('Ri'+i).textContent=v.toFixed(3);recalc()}
+    function recalc(){const k=parseInt(document.getElementById('kpaths').value,10);let oneMinusProd=1.0;let lines=['MRI = 1 - Π_i (1 - R(P_i))'];for(let i=1;i<=k;i++){const r=parseFloat(document.getElementById('path'+i).value);lines.push('R(P'+i+') = '+r.toFixed(3));oneMinusProd*=(1-r)}const mri=1-oneMinusProd;document.getElementById('mriVal').textContent=mri.toFixed(4);document.getElementById('mriBar').style.width=(mri*100).toFixed(1)+'%';document.getElementById('mriCalc').textContent=lines.join('\n')+'\n=> MRI = '+mri.toFixed(4);
+      const U=+document.getElementById('U').value,D=+document.getElementById('D').value,R=+document.getElementById('R').value,C=+document.getElementById('C').value;document.getElementById('UVal').textContent=U.toFixed(2);document.getElementById('DVal').textContent=D.toFixed(2);document.getElementById('RVal').textContent=R.toFixed(2);document.getElementById('CVal').textContent=C.toFixed(2);
+      const wU=+document.getElementById('wU').value,wD=+document.getElementById('wD').value,wR=+document.getElementById('wR').value,wC=+document.getElementById('wC').value;document.getElementById('wUVal').textContent=wU.toFixed(2);document.getElementById('wDVal').textContent=wD.toFixed(2);document.getElementById('wRVal').textContent=wR.toFixed(2);document.getElementById('wCVal').textContent=wC.toFixed(2);
+      let wsum=wU+wD+wR+wC; if(wsum===0) wsum=1; const ssi=(wU/wsum)*U+(wD/wsum)*D+(wR/wsum)*R+(wC/wsum)*C;document.getElementById('ssiVal').textContent=ssi.toFixed(4);document.getElementById('ssiBar').style.width=(ssi*100).toFixed(1)+'%';
+      const onTime=+document.getElementById('onTime').value,consistency=+document.getElementById('consistency').value,errorRate=+document.getElementById('errorRate').value;document.getElementById('onTimeVal').textContent=onTime.toFixed(2);document.getElementById('consistencyVal').textContent=consistency.toFixed(2);document.getElementById('errorRateVal').textContent=errorRate.toFixed(2);
+      const w1=+document.getElementById('w1').value,w2=+document.getElementById('w2').value,w3=+document.getElementById('w3').value;let wsum2=w1+w2+w3; if(wsum2===0) wsum2=1; const lhi=(w1/wsum2)*onTime+(w2/wsum2)*consistency-(w3/wsum2)*errorRate;document.getElementById('lhiVal').textContent=lhi.toFixed(4);document.getElementById('lhiBar').style.width=(lhi*100).toFixed(1)+'%'; }
+    window.addEventListener('DOMContentLoaded',()=>{renderPaths();recalc()});
+  </script>
 </body>
 </html>
